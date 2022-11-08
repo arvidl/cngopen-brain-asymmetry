@@ -12,3 +12,32 @@ pip install neurosynth
 pip install brainstat
 pip install PyQt5
 ```
+
+Test data from OpenNeuro:
+
+- https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7217223/
+- https://openneuro.org/datasets/ds001907/versions/3.0.2/download
+
+```
+aws s3 sync --no-sign-request s3://openneuro.org/ds001907 ds001907-download/
+```
+
+
+README
+
+Trevor K. M. Day and Tara M. Madyastha and Peter Boord and Mary K. Askren and Nicholas J. Wapstra and Thomas J. Montine and Thomas J. Grabowski (2022). ANT: Healthy aging and Parkinson's disease. OpenNeuro. [Dataset] doi: doi:10.18112/openneuro.ds001907.v3.0.2
+
+
+This project contains 46 healthy aging (n = 25, RC41\*) participants and participants with Parkinson's disease (n = 21, RC42\*) at two sessions each. At each session, subjects acquired 6 repetitions of the ANT task (1-6). ANT task scans are the same by number across subjects, although they were presented in varying orders. Task timing, anatomical scans, resting scans, and DTI scans by session are also included.
+
+The derivatives/ directory contains AFNI-preprocessed scans as well as anatomical scans skullstripped before defacing. The derivatives have been slice-timing corrected already, so 0s are provided for that field.
+
+At the top level is complete demographic information and the AFNI script for preprocessing.
+
+Exceptions ---------- One subject (RC4206) had an acquisition error during their second session structural scan. Correspondingly, their structural scan from their first session has been copied for their second session to create a valid BIDS directory.
+
+DTI scans are not present for four subjects for the first session (RC4106, RC4204, RC4205, RC4226) and three subjects for the second session (RC4103, RC4106, RC4205).
+
+DTI scans for the first session of two participants have a larger dimension size compared to other DTI scans (RC4101, RC4201).
+
+Change Log ---------- 3.0.0 (2022/03/03) Upload rest and DTI data 2.0.3 (2019/05/15) Rename project 2.0.1-2 (2019/05/10) Tweaks to README 2.0.0 (2019/05/09) Add processsed derivatives 1.1.0 (2019/05/08) Upload all subjects raw data + skullstrips 1.0.0 (2019/05/08) Upload one subject (API being weird)
